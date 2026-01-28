@@ -20,12 +20,8 @@
             font-family: 'Playfair Display', serif;
         }
 
-        .hero-bg {
-            background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.6)), url('https://images.unsplash.com/photo-1516685018646-54818bd2a07b?auto=format&fit=crop&q=80&w=1600');
-            background-size: cover;
-            background-position: center;
-        }
-
+        /* Hero Background Class Removed - Now controlled via HTML Video */
+        
         .loader {
             position: fixed;
             inset: 0;
@@ -136,7 +132,6 @@
             cursor: pointer !important;
         }
 
-        /* Premium Image Styling */
         .product-image-container {
             overflow: hidden;
             border-radius: 1rem;
@@ -151,7 +146,6 @@
             transform: scale(1.05);
         }
 
-        /* Card Styling */
         .coming-soon-overlay {
             background: linear-gradient(to top, rgba(0, 0, 0, 0.9) 20%, rgba(0, 0, 0, 0.2));
             transition: background 0.4s ease;
@@ -199,7 +193,8 @@
                         <a href="#coming-soon" class="nav-link text-sm uppercase tracking-widest text-stone-200">Secret
                             Lab</a>
                         <div class="w-px h-8 bg-white/10 mx-4"></div>
-                        <a href="#contact"
+                        <a href="https://wa.me/919574679695?text=Hello%20SOLVIO!%20I%20want%20to%20place%20an%20order."
+                            target="_blank"
                             class="bg-amber-600 text-black font-black px-8 py-3 rounded-lg hover:bg-amber-500 transition uppercase text-sm tracking-tighter shadow-lg shadow-amber-600/20">Order
                             Now</a>
                     </div>
@@ -210,19 +205,27 @@
             </div>
         </nav>
 
-        <section id="home" class="hero-bg h-screen flex items-center justify-center text-center px-4">
-            <div class="max-w-4xl">
+        <section id="home" class="relative h-screen flex items-center justify-center text-center px-4 overflow-hidden">
+            
+            <video autoplay muted loop playsinline class="absolute top-0 left-0 w-full h-full object-cover z-0">
+                <source src="https://videos.pexels.com/video-files/6981410/6981410-uhd_2560_1440_25fps.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+
+            <div class="absolute inset-0 bg-gradient-to-b from-black/70 via-black/40 to-black/80 z-0"></div>
+
+            <div class="max-w-4xl relative z-10">
                 <div
-                    class="inline-block border border-amber-500/30 px-4 py-1 rounded-full text-amber-500 text-xs font-bold uppercase tracking-[0.2em] mb-6">
+                    class="inline-block border border-amber-500/30 px-4 py-1 rounded-full text-amber-500 text-xs font-bold uppercase tracking-[0.2em] mb-6 backdrop-blur-sm bg-black/20">
                     Artisanal & Hand-Crafted
                 </div>
-                <h1 class="text-6xl md:text-8xl font-serif text-white mb-6 tracking-tight min-h-[1.2em] force-pointer">
+                <h1 class="text-6xl md:text-8xl font-serif text-white mb-6 tracking-tight min-h-[1.2em] force-pointer drop-shadow-2xl">
                     <span id="typewriter"></span><span id="cursor" class="cursor">&nbsp;</span>
                 </h1>
-                <p class="text-xl text-stone-400 mb-10 max-w-2xl mx-auto leading-relaxed">A new destination for taste.
+                <p class="text-xl text-stone-300 mb-10 max-w-2xl mx-auto leading-relaxed drop-shadow-lg">A new destination for taste.
                     Solvio brings you the most premium smoked spices for the elite palate.</p>
 
-                <div class="bg-white/5 border border-white/10 p-6 rounded-xl backdrop-blur-md mb-10 max-w-md mx-auto">
+                <div class="bg-white/5 border border-white/10 p-6 rounded-xl backdrop-blur-md mb-10 max-w-md mx-auto shadow-2xl">
                     <p class="text-amber-500 text-sm font-bold uppercase tracking-widest mb-4">Next batch due:</p>
                     <div class="flex justify-center space-x-6 text-white">
                         <div><span id="timer-h" class="text-3xl font-bold">04</span>
@@ -273,12 +276,14 @@
                         </div>
 
                         <div class="flex flex-col sm:flex-row gap-4">
-                            <button
-                                class="bg-white text-black px-10 py-4 rounded font-bold hover:bg-amber-500 transition cursor-pointer">Buy
-                                Now</button>
-                            <button
+                            <a href="https://wa.me/919574679695?text=Hello%20SOLVIO!%20I%20am%20interested%20in%20your%20Premium%20Smoked%20Garlic%20Salt.%20Please%20share%20more%20details%20and%20order%20process." 
+                            target="_blank"
+                            class="bg-white text-black px-10 py-4 rounded font-bold hover:bg-amber-500 transition cursor-pointer text-center flex items-center justify-center">
+                            Buy Now
+                            </a>
+                            <button id="shareBtn"
                                 class="border border-white/20 text-white px-10 py-4 rounded font-bold hover:bg-white/10 transition flex items-center justify-center cursor-pointer">
-                                <i data-lucide="share-2" class="w-4 h-4 mr-2"></i> Share
+                                <i data-lucide="share-2" class="w-4 h-4 mr-2"></i> <span id="shareBtnText">Share</span>
                             </button>
                         </div>
                     </div>
@@ -304,10 +309,8 @@
                                 class="bg-amber-600/20 text-amber-500 text-[10px] font-bold tracking-[0.2em] px-3 py-1 rounded-full mb-4">NEW
                                 VARIETY</span>
                             <h4 class="text-2xl font-serif text-white mb-2">Black Truffle Salt</h4>
-                            <p class="text-stone-400 text-sm mb-6">Duniya ka sabse premium flavor, ab Solvio ke touch ke
-                                saath.</p>
-                            <button class="text-amber-500 text-xs font-bold border-b border-amber-500 pb-1">NOTIFY
-                                ME</button>
+                            <p class="text-stone-400 text-sm mb-6">Duniya ka sabse premium flavor, ab Solvio ke touch ke saath.</p>
+                            <button class="text-amber-500 text-xs font-bold border-b border-amber-500 pb-1">NOTIFY ME</button>
                         </div>
                     </div>
 
@@ -320,10 +323,8 @@
                                 class="bg-amber-600/20 text-amber-500 text-[10px] font-bold tracking-[0.2em] px-3 py-1 rounded-full mb-4">NEW
                                 VARIETY</span>
                             <h4 class="text-2xl font-serif text-white mb-2">Smoked Peri-Peri</h4>
-                            <p class="text-stone-400 text-sm mb-6">Thoda teekha, thoda smoked. Aapke snacks ka naya best
-                                friend.</p>
-                            <button class="text-amber-500 text-xs font-bold border-b border-amber-500 pb-1">NOTIFY
-                                ME</button>
+                            <p class="text-stone-400 text-sm mb-6">Thoda teekha, thoda smoked. Aapke snacks ka naya best friend.</p>
+                            <button class="text-amber-500 text-xs font-bold border-b border-amber-500 pb-1">NOTIFY ME</button>
                         </div>
                     </div>
 
@@ -336,10 +337,8 @@
                                 class="bg-amber-600/20 text-amber-500 text-[10px] font-bold tracking-[0.2em] px-3 py-1 rounded-full mb-4">NEW
                                 VARIETY</span>
                             <h4 class="text-2xl font-serif text-white mb-2">Herbal Ocean Salt</h4>
-                            <p class="text-stone-400 text-sm mb-6">Samundar ki taazgi aur organic herbs ka perfect
-                                blend.</p>
-                            <button class="text-amber-500 text-xs font-bold border-b border-amber-500 pb-1">NOTIFY
-                                ME</button>
+                            <p class="text-stone-400 text-sm mb-6">Samundar ki taazgi aur organic herbs ka perfect blend.</p>
+                            <button class="text-amber-500 text-xs font-bold border-b border-amber-500 pb-1">NOTIFY ME</button>
                         </div>
                     </div>
                 </div>
@@ -366,8 +365,8 @@
                         <h5 class="text-white font-bold mb-6">Contact Us</h5>
                         <ul class="space-y-4 text-stone-500 text-sm">
                             <li class="flex items-center hover:text-amber-500 transition">
-                                <a href="tel:+919876543210" class="flex items-center cursor-pointer">
-                                    <i data-lucide="phone" class="w-4 h-4 mr-2 text-amber-500"></i> +91 98765 43210
+                                <a href="tel:+919574679695" class="flex items-center cursor-pointer">
+                                    <i data-lucide="phone" class="w-4 h-4 mr-2 text-amber-500"></i> +91 95746 79695
                                 </a>
                             </li>
                             <li class="flex items-center hover:text-amber-500 transition">
@@ -384,7 +383,8 @@
                     <div>
                         <h5 class="text-white font-bold mb-6">Follow The Vibe</h5>
                         <div class="flex space-x-4">
-                            <a href="#"
+                            <a href="https://www.instagram.com/solvio_craftedbyfire?igsh=NGFuMjI3MHhhejV5"
+                                target="_blank"
                                 class="w-10 h-10 bg-white/5 rounded-full flex items-center justify-center hover:bg-amber-600 transition text-white cursor-pointer">
                                 <i data-lucide="instagram" class="w-5 h-5"></i>
                             </a>
@@ -405,21 +405,52 @@
     <script>
         lucide.createIcons();
 
-        // Smooth Scroll
+        // ✅ PROFESSIONAL SHARE FEATURE SCRIPT
+        const shareBtn = document.getElementById('shareBtn');
+        const shareBtnText = document.getElementById('shareBtnText');
+
+        shareBtn.addEventListener('click', async () => {
+            if (navigator.share) {
+                // If the browser supports native sharing (mainly Mobile)
+                try {
+                    await navigator.share({
+                        title: 'SOLVIO | Premium Smoked Garlic Salt',
+                        text: 'Aapne yeh try kiya? Solvio ka Premium Smoked Garlic Salt - Sirf ₹199 mein! 🔥',
+                        url: window.location.href,
+                    });
+                } catch (err) {
+                    console.log('Share canceled or failed');
+                }
+            } else {
+                // Fallback for Desktop: Copy to clipboard
+                try {
+                    await navigator.clipboard.writeText(window.location.href);
+                    shareBtnText.innerText = "Link Copied!";
+                    setTimeout(() => {
+                        shareBtnText.innerText = "Share";
+                    }, 2000);
+                } catch (err) {
+                    alert('Unable to share. Please copy the URL manually.');
+                }
+            }
+        });
+
+
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const targetId = this.getAttribute('href');
-                const targetElement = document.querySelector(targetId);
-                if (targetElement) {
-                    const navHeight = 80;
-                    const targetPosition = targetElement.offsetTop - navHeight;
-                    window.scrollTo({ top: targetPosition, behavior: 'smooth' });
+                if (this.getAttribute('href').startsWith('#')) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href');
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        const navHeight = 80;
+                        const targetPosition = targetElement.offsetTop - navHeight;
+                        window.scrollTo({ top: targetPosition, behavior: 'smooth' });
+                    }
                 }
             });
         });
 
-        // Typewriter Effect
         const text = "Pure Excellence";
         const typewriterElement = document.getElementById('typewriter');
         const cursorElement = document.getElementById('cursor');
@@ -441,14 +472,12 @@
             }
         }
 
-        // Navbar Scroll effect
         const navbar = document.getElementById('main-nav');
         window.onscroll = function () {
             if (window.scrollY > 50) navbar.classList.add('nav-scrolled');
             else navbar.classList.remove('nav-scrolled');
         };
 
-        // Loader
         window.addEventListener('load', () => {
             document.getElementById('loader').classList.add('hide');
             setTimeout(() => {
@@ -457,13 +486,11 @@
             }, 500);
         });
 
-        // Reveal Animation
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('active'); });
         }, { threshold: 0.15 });
         document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
-        // Timer
         let h = 4, m = 22, s = 59;
         setInterval(() => {
             s--;
@@ -475,5 +502,4 @@
         }, 1000);
     </script>
 </body>
-
-</html>
+</html> 
