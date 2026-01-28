@@ -20,12 +20,8 @@
             font-family: 'Playfair Display', serif;
         }
 
-        .hero-bg {
-            background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.6)), url('https://images.unsplash.com/photo-1516685018646-54818bd2a07b?auto=format&fit=crop&q=80&w=1600');
-            background-size: cover;
-            background-position: center;
-        }
-
+        /* Hero Background Class Removed - Now controlled via HTML Video */
+        
         .loader {
             position: fixed;
             inset: 0;
@@ -209,19 +205,27 @@
             </div>
         </nav>
 
-        <section id="home" class="hero-bg h-screen flex items-center justify-center text-center px-4">
-            <div class="max-w-4xl">
+        <section id="home" class="relative h-screen flex items-center justify-center text-center px-4 overflow-hidden">
+            
+            <video autoplay muted loop playsinline class="absolute top-0 left-0 w-full h-full object-cover z-0">
+                <source src="https://videos.pexels.com/video-files/6981410/6981410-uhd_2560_1440_25fps.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+
+            <div class="absolute inset-0 bg-gradient-to-b from-black/70 via-black/40 to-black/80 z-0"></div>
+
+            <div class="max-w-4xl relative z-10">
                 <div
-                    class="inline-block border border-amber-500/30 px-4 py-1 rounded-full text-amber-500 text-xs font-bold uppercase tracking-[0.2em] mb-6">
+                    class="inline-block border border-amber-500/30 px-4 py-1 rounded-full text-amber-500 text-xs font-bold uppercase tracking-[0.2em] mb-6 backdrop-blur-sm bg-black/20">
                     Artisanal & Hand-Crafted
                 </div>
-                <h1 class="text-6xl md:text-8xl font-serif text-white mb-6 tracking-tight min-h-[1.2em] force-pointer">
+                <h1 class="text-6xl md:text-8xl font-serif text-white mb-6 tracking-tight min-h-[1.2em] force-pointer drop-shadow-2xl">
                     <span id="typewriter"></span><span id="cursor" class="cursor">&nbsp;</span>
                 </h1>
-                <p class="text-xl text-stone-400 mb-10 max-w-2xl mx-auto leading-relaxed">A new destination for taste.
+                <p class="text-xl text-stone-300 mb-10 max-w-2xl mx-auto leading-relaxed drop-shadow-lg">A new destination for taste.
                     Solvio brings you the most premium smoked spices for the elite palate.</p>
 
-                <div class="bg-white/5 border border-white/10 p-6 rounded-xl backdrop-blur-md mb-10 max-w-md mx-auto">
+                <div class="bg-white/5 border border-white/10 p-6 rounded-xl backdrop-blur-md mb-10 max-w-md mx-auto shadow-2xl">
                     <p class="text-amber-500 text-sm font-bold uppercase tracking-widest mb-4">Next batch due:</p>
                     <div class="flex justify-center space-x-6 text-white">
                         <div><span id="timer-h" class="text-3xl font-bold">04</span>
@@ -498,4 +502,4 @@
         }, 1000);
     </script>
 </body>
-</html>
+</html> 
