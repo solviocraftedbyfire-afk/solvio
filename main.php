@@ -95,7 +95,7 @@
             .nav-scrolled #menu-btn {
                 color: #1c1917 !important;
             }
-
+hdjbcjbdj
             .nav-link {
                 padding: 10px 24px;
                 border-radius: 8px;
