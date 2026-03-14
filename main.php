@@ -445,7 +445,7 @@
                 });
             });
 
-            const text = "Pure Excellence";
+            const text = "meet patel";
             const typewriterElement = document.getElementById('typewriter');
             const cursorElement = document.getElementById('cursor');
             let index = 0;
