@@ -103,7 +103,7 @@
                 font-weight: 600;
                 cursor: pointer;
             }
-sfxdhf
+
             .nav-link:hover {
                 background-color: #d97706;
                 color: #000 !important;
@@ -211,7 +211,7 @@ sfxdhf
                 <div class="max-w-4xl">
                     <div
                         class="inline-block border border-amber-500/30 px-4 py-1 rounded-full text-amber-500 text-xs font-bold uppercase tracking-[0.2em] mb-6">
-                        Artisanal & Hand-Crafted
+                        Artisanal & Hand-Crafted ffgghjg
                     </div>
                     <h1 class="text-6xl md:text-8xl font-serif text-white mb-6 tracking-tight min-h-[1.2em] force-pointer">
                         <span id="typewriter"></span><span id="cursor" class="cursor">&nbsp;</span>
